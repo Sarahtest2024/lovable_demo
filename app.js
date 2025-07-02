@@ -2,6 +2,73 @@
 
 // Application data
 const appData = {
+    // Checkatrade-specific prompt templates
+    checkatrade_prompts: {
+        'trade-category': {
+            base: "Create a professional landing page for {trade_type} services in {location}. The page should feature Checkatrade branding with primary blue (#0058a2) and accent red (#eb1f40) colors, using Open Sans font throughout. Include a hero section highlighting '{campaign_name}', customer testimonials with star ratings, a clear '{cta}' button, and sections showcasing vetted tradespeople with their qualifications and customer reviews.",
+            features: {
+                reviews: " Add a prominent reviews section with verified customer feedback and 5-star rating system.",
+                guarantees: " Include work guarantee badges and insurance coverage information.",
+                insurance: " Display comprehensive vetting process details and insurance verification.",
+                emergency: " Feature 24/7 emergency service availability with priority booking.",
+                mobile: " Ensure fully responsive mobile-first design with touch-friendly navigation."
+            }
+        },
+        'local-seo': {
+            base: "Build a local SEO microsite for {trade_type} services targeting '{location}'. Use Checkatrade's blue (#0058a2) and red (#eb1f40) brand colors with Open Sans typography. Structure the site with location-specific content for '{campaign_name}', local trade directory, service area maps, and optimized meta descriptions. Include '{cta}' conversion points throughout.",
+            features: {
+                reviews: " Integrate location-based customer reviews and ratings for local credibility.",
+                guarantees: " Highlight local work guarantees and service commitments.",
+                insurance: " Show detailed vetting information for local tradespeople.",
+                emergency: " Promote local emergency services with fast response times.",
+                mobile: " Optimize for mobile local search with click-to-call functionality."
+            }
+        },
+        'quote-calculator': {
+            base: "Design an interactive quote calculator for {trade_type} services related to '{campaign_name}' in {location}. Apply Checkatrade branding (#0058a2 blue, #eb1f40 red) with Open Sans fonts. Create step-by-step input forms for project details, instant price estimates, and lead capture functionality. End with '{cta}' to connect with verified local tradespeople.",
+            features: {
+                reviews: " Show ratings and reviews for recommended tradespeople in price results.",
+                guarantees: " Display work guarantee options with different coverage levels.",
+                insurance: " Include insurance verification status for quoted tradespeople.",
+                emergency: " Offer emergency service pricing and availability options.",
+                mobile: " Ensure smooth mobile calculator experience with large input buttons."
+            }
+        },
+        'signup-funnel': {
+            base: "Create a multi-step registration funnel for {trade_type} professionals to join Checkatrade for '{campaign_name}'. Use brand colors (#0058a2 blue, #eb1f40 red) and Open Sans typography. Include benefit highlights, membership tiers, vetting process explanation, and cost calculator. Target {location} market with localized content and strong '{cta}' at each step.",
+            features: {
+                reviews: " Showcase success stories and reviews from existing members.",
+                guarantees: " Explain membership guarantees and support commitments.",
+                insurance: " Detail insurance requirements and verification process.",
+                emergency: " Highlight emergency call-out opportunities and premium rates.",
+                mobile: " Create mobile-optimized signup flow with progress indicators."
+            }
+        },
+        'seasonal': {
+            base: "Build a seasonal campaign page for '{campaign_name}' targeting {trade_type} services in {location}. Incorporate Checkatrade branding (#0058a2, #eb1f40) with Open Sans fonts. Feature seasonal service needs, limited-time offers, vetted tradesperson availability, and urgent booking system. Emphasize seasonal expertise and '{cta}' for immediate action.",
+            features: {
+                reviews: " Include seasonal service reviews and customer satisfaction scores.",
+                guarantees: " Highlight seasonal work guarantees and weather-related coverage.",
+                insurance: " Show comprehensive insurance for seasonal work risks.",
+                emergency: " Promote emergency seasonal services (heating, storm damage, etc.).",
+                mobile: " Optimize for mobile booking during seasonal emergencies."
+            }
+        }
+    },
+    example_prompts: [
+        {
+            title: "Local Plumber Landing Page",
+            prompt: "Create a professional landing page for emergency plumbing services in Manchester. The page should feature Checkatrade branding with primary blue (#0058a2) and accent red (#eb1f40) colors, using Open Sans font throughout. Include a hero section highlighting 'Emergency Plumbing Response', customer testimonials with star ratings, a clear 'Get Emergency Quote' button, and sections showcasing vetted plumbers with their qualifications and customer reviews. Feature 24/7 emergency service availability with priority booking. Include comprehensive vetting process details and insurance verification. Ensure fully responsive mobile-first design with touch-friendly navigation and click-to-call functionality."
+        },
+        {
+            title: "Trade Sign-up Funnel",
+            prompt: "Create a multi-step registration funnel for electrician professionals to join Checkatrade for 'Electrical Services Partnership Program'. Use brand colors (#0058a2 blue, #eb1f40 red) and Open Sans typography. Include benefit highlights, membership tiers, vetting process explanation, and cost calculator. Target London market with localized content and strong 'Join Checkatrade' at each step. Showcase success stories and reviews from existing members. Detail insurance requirements and verification process. Create mobile-optimized signup flow with progress indicators."
+        },
+        {
+            title: "Quote Calculator Tool",
+            prompt: "Design an interactive quote calculator for bathroom fitting services related to 'Bathroom Renovation Calculator' in Birmingham. Apply Checkatrade branding (#0058a2 blue, #eb1f40 red) with Open Sans fonts. Create step-by-step input forms for project details, instant price estimates, and lead capture functionality. End with 'Find Local Bathroom Fitters' to connect with verified local tradespeople. Show ratings and reviews for recommended tradespeople in price results. Display work guarantee options with different coverage levels. Ensure smooth mobile calculator experience with large input buttons."
+        }
+    ],
     marketing_use_cases: [
         {
             title: "Landing Pages",
@@ -481,10 +548,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add keyboard navigation for sections
+// Add keyboard navigation for sections (updated order)
 document.addEventListener('keydown', function(e) {
     if (e.altKey) {
-        const sections = ['tutorial', 'use-cases', 'credit-manager', 'quick-start', 'tools'];
+        const sections = ['tutorial', 'quick-start', 'tools', 'use-cases', 'credit-manager'];
         const currentSectionIndex = sections.findIndex(section => 
             document.getElementById(section).classList.contains('active')
         );
@@ -497,6 +564,208 @@ document.addEventListener('keydown', function(e) {
             e.preventDefault();
         }
     }
+});
+
+// Checkatrade Prompt Generator Functions
+let currentCampaignType = 'trade-category';
+
+function selectCampaignType(type) {
+    currentCampaignType = type;
+    
+    // Update button states
+    document.querySelectorAll('.campaign-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.type === type) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Generate new prompt with current inputs
+    generatePrompt();
+}
+
+function generatePrompt() {
+    const campaignName = document.getElementById('campaign-name')?.value || '';
+    const targetLocation = document.getElementById('target-location')?.value || '';
+    const tradeType = document.getElementById('trade-type')?.value || '';
+    const ctaType = document.getElementById('cta-type')?.value || 'Get Quote';
+    
+    // Get selected features
+    const features = [];
+    const featureCheckboxes = {
+        'feature-reviews': 'reviews',
+        'feature-guarantees': 'guarantees', 
+        'feature-insurance': 'insurance',
+        'feature-emergency': 'emergency',
+        'feature-mobile': 'mobile'
+    };
+    
+    Object.entries(featureCheckboxes).forEach(([id, feature]) => {
+        const checkbox = document.getElementById(id);
+        if (checkbox && checkbox.checked) {
+            features.push(feature);
+        }
+    });
+    
+    // Generate prompt if we have required fields
+    if (campaignName && targetLocation && tradeType) {
+        const template = appData.checkatrade_prompts[currentCampaignType];
+        let prompt = template.base
+            .replace('{campaign_name}', campaignName)
+            .replace('{location}', targetLocation)
+            .replace('{trade_type}', tradeType)
+            .replace('{cta}', ctaType);
+        
+        // Add selected features
+        features.forEach(feature => {
+            if (template.features[feature]) {
+                prompt += template.features[feature];
+            }
+        });
+        
+        // Add final touch for professionalism
+        prompt += " Ensure the site loads quickly, is fully accessible, and includes clear contact information with trust signals like verified badges and customer service details.";
+        
+        document.getElementById('generated-prompt').value = prompt;
+    } else {
+        // Show placeholder or helper text
+        let missingFields = [];
+        if (!campaignName) missingFields.push('Campaign Name');
+        if (!targetLocation) missingFields.push('Target Location');
+        if (!tradeType) missingFields.push('Trade Type');
+        
+        const placeholder = missingFields.length > 0 
+            ? `Please fill in the following required fields to generate your prompt: ${missingFields.join(', ')}`
+            : 'Fill in the required fields above to generate your custom Checkatrade prompt...';
+            
+        document.getElementById('generated-prompt').value = '';
+        document.getElementById('generated-prompt').placeholder = placeholder;
+    }
+}
+
+function copyGeneratedPrompt() {
+    const promptTextarea = document.getElementById('generated-prompt');
+    const copyBtn = document.getElementById('copy-prompt-btn');
+    
+    if (!promptTextarea.value.trim()) {
+        return;
+    }
+    
+    // Select and copy text
+    promptTextarea.select();
+    promptTextarea.setSelectionRange(0, 99999); // For mobile devices
+    
+    try {
+        document.execCommand('copy');
+        
+        // Show success feedback
+        const originalHTML = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<span class="copy-icon">✓</span>Copied!';
+        copyBtn.classList.add('copied');
+        
+        setTimeout(() => {
+            copyBtn.innerHTML = originalHTML;
+            copyBtn.classList.remove('copied');
+        }, 2000);
+        
+    } catch (err) {
+        // Fallback for browsers that don't support execCommand
+        navigator.clipboard.writeText(promptTextarea.value).then(() => {
+            const originalHTML = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<span class="copy-icon">✓</span>Copied!';
+            copyBtn.classList.add('copied');
+            
+            setTimeout(() => {
+                copyBtn.innerHTML = originalHTML;
+                copyBtn.classList.remove('copied');
+            }, 2000);
+        }).catch(() => {
+            alert('Please manually copy the prompt text');
+        });
+    }
+}
+
+function copyExamplePrompt(index) {
+    const examplePrompt = appData.example_prompts[index];
+    if (!examplePrompt) return;
+    
+    // Copy to clipboard
+    try {
+        navigator.clipboard.writeText(examplePrompt.prompt).then(() => {
+            // Find the button that was clicked
+            const buttons = document.querySelectorAll('.example-copy-btn');
+            const button = buttons[index];
+            
+            if (button) {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                }, 2000);
+            }
+        }).catch(() => {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = examplePrompt.prompt;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            const buttons = document.querySelectorAll('.example-copy-btn');
+            const button = buttons[index];
+            
+            if (button) {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                }, 2000);
+            }
+        });
+    } catch (err) {
+        alert('Please manually copy the example prompt');
+    }
+}
+
+// Initialize the prompt generator when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Set up event listeners for the new prompt generator
+    const campaignName = document.getElementById('campaign-name');
+    const targetLocation = document.getElementById('target-location');
+    const tradeType = document.getElementById('trade-type');
+    const ctaType = document.getElementById('cta-type');
+    
+    if (campaignName) {
+        campaignName.addEventListener('input', debounce(generatePrompt, 300));
+    }
+    if (targetLocation) {
+        targetLocation.addEventListener('input', debounce(generatePrompt, 300));
+    }
+    if (tradeType) {
+        tradeType.addEventListener('change', generatePrompt);
+    }
+    if (ctaType) {
+        ctaType.addEventListener('change', generatePrompt);
+    }
+    
+    // Set up feature checkbox listeners
+    const featureCheckboxes = ['feature-reviews', 'feature-guarantees', 'feature-insurance', 'feature-emergency', 'feature-mobile'];
+    featureCheckboxes.forEach(id => {
+        const checkbox = document.getElementById(id);
+        if (checkbox) {
+            checkbox.addEventListener('change', generatePrompt);
+        }
+    });
+    
+    // Initialize with default campaign type
+    selectCampaignType('trade-category');
 });
 
 // Add click outside to close modal

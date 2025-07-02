@@ -50,14 +50,48 @@
         </section>
 
         <!-- Navigation -->
-        <nav class="nav-tabs">
+        <nav class="nav-tabs" id="main-navigation">
             <div class="container">
+                <div class="nav-header">
+                    <h3 class="nav-title">📚 Complete Learning Guide</h3>
+                    <p class="nav-subtitle">Follow this step-by-step journey to master Lovable AI for marketing success</p>
+                </div>
                 <div class="tab-buttons">
-                    <button class="tab-btn active" onclick="showSection('tutorial')">What is Lovable?</button>
-                    <button class="tab-btn" onclick="showSection('use-cases')">Marketing Use Cases</button>
-                    <button class="tab-btn" onclick="showSection('credit-manager')">Credit Management</button>
-                    <button class="tab-btn" onclick="showSection('quick-start')">Quick Start Guide</button>
-                    <button class="tab-btn" onclick="showSection('tools')">Practical Tools</button>
+                    <button class="tab-btn active" onclick="showSection('tutorial')" data-step="1">
+                        <span class="tab-number">1</span>
+                        <div class="tab-content">
+                            <span class="tab-title">What is Lovable?</span>
+                            <span class="tab-desc">Learn the basics</span>
+                        </div>
+                    </button>
+                    <button class="tab-btn" onclick="showSection('quick-start')" data-step="2">
+                        <span class="tab-number">2</span>
+                        <div class="tab-content">
+                            <span class="tab-title">Quick Start Guide</span>
+                            <span class="tab-desc">Get up and running</span>
+                        </div>
+                    </button>
+                    <button class="tab-btn" onclick="showSection('tools')" data-step="3">
+                        <span class="tab-number">3</span>
+                        <div class="tab-content">
+                            <span class="tab-title">Practical Tools</span>
+                            <span class="tab-desc">Build your first app</span>
+                        </div>
+                    </button>
+                    <button class="tab-btn" onclick="showSection('use-cases')" data-step="4">
+                        <span class="tab-number">4</span>
+                        <div class="tab-content">
+                            <span class="tab-title">Marketing Use Cases</span>
+                            <span class="tab-desc">Explore possibilities</span>
+                        </div>
+                    </button>
+                    <button class="tab-btn" onclick="showSection('credit-manager')" data-step="5">
+                        <span class="tab-number">5</span>
+                        <div class="tab-content">
+                            <span class="tab-title">Credit Management</span>
+                            <span class="tab-desc">Optimize your usage</span>
+                        </div>
+                    </button>
                 </div>
             </div>
         </nav>
@@ -193,34 +227,151 @@
             <!-- Quick Start Guide -->
             <section class="content-section" id="quick-start">
                 <div class="container">
-                    <h2>Quick Start Guide</h2>
+                    <h2>Quick Start Guide for Checkatrade Marketers</h2>
+                    
+                    <!-- Welcome Intro -->
+                    <div class="welcome-intro">
+                        <p class="intro-text">Welcome to Lovable AI! You're about to discover how to build professional marketing tools in minutes rather than months. This guide will get you up and running quickly, so you can start creating conversion-focused landing pages, lead generation tools, and campaign sites that drive real results for Checkatrade.</p>
+                        <div class="lovable-link-card">
+                            <h4>🚀 Ready to Get Started?</h4>
+                            <p>Visit the official Lovable platform to begin building:</p>
+                            <a href="https://lovable.dev" target="_blank" class="btn btn--primary">Launch Lovable.dev</a>
+                        </div>
+                    </div>
+
                     <div class="quick-start-steps">
+                        <!-- Step 1: Sign Up & Log In -->
                         <div class="step-card">
                             <div class="step-number">1</div>
                             <div class="step-content">
-                                <h3>Define Your Goal</h3>
-                                <p>What marketing problem are you solving? Be specific about your objective.</p>
-                                <div class="example">
-                                    <strong>Example:</strong> "I need a landing page for our Q3 product launch that captures leads"
+                                <h3>Sign Up & Log In</h3>
+                                <p>Create your Lovable account and access your daily credits:</p>
+                                <ul class="step-list">
+                                    <li>Go to <strong>lovable.dev</strong> and click "Sign Up"</li>
+                                    <li>Use your Checkatrade email address for easy identification</li>
+                                    <li>Complete the quick onboarding process</li>
+                                    <li>Log in to access your dashboard</li>
+                                </ul>
+                                <div class="important-note">
+                                    <strong>💡 Important:</strong> You get 5 free credits per day - no enterprise version available. Plan your prompts carefully to avoid unnecessary retries!
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Step 2: Create Your First Project -->
                         <div class="step-card">
                             <div class="step-number">2</div>
                             <div class="step-content">
-                                <h3>Choose Your Template</h3>
-                                <p>Select from our proven prompt templates or create your own.</p>
-                                <button class="btn btn--secondary" onclick="showSection('tools')">View Prompt Builder</button>
+                                <h3>Start Your First Project</h3>
+                                <p>Launch your marketing tool project with a well-crafted prompt:</p>
+                                <ul class="step-list">
+                                    <li>Click "New Project" in your Lovable dashboard</li>
+                                    <li>Use our <button class="btn btn--sm btn--secondary" onclick="showSection('tools')">Prompt Generator</button> to create professional prompts</li>
+                                    <li>Copy your generated prompt and paste it into Lovable</li>
+                                    <li>Click "Build" and watch your app come to life</li>
+                                </ul>
+                                <div class="example">
+                                    <strong>Pro Tip:</strong> Start with simpler projects (landing pages) before moving to complex tools (calculators) to maximize your credit efficiency.
+                                </div>
                             </div>
                         </div>
+
+                        <!-- Step 3: Review & Refine -->
                         <div class="step-card">
                             <div class="step-number">3</div>
                             <div class="step-content">
-                                <h3>Customize & Deploy</h3>
-                                <p>Refine your app with specific details and launch in minutes.</p>
-                                <div class="example">
-                                    <strong>Tip:</strong> Start simple, then iterate with additional features
+                                <h3>Review & Refine Your App</h3>
+                                <p>Test your application and make targeted improvements:</p>
+                                <ul class="step-list">
+                                    <li>Preview your app to ensure it meets your requirements</li>
+                                    <li>Check Checkatrade branding consistency (colors, fonts, messaging)</li>
+                                    <li>Test on mobile devices for responsive design</li>
+                                    <li>Make small, specific refinements rather than complete rebuilds</li>
+                                </ul>
+                                <div class="warning-note">
+                                    <strong>⚠️ Credit Tip:</strong> Be specific with revision requests to avoid wasting credits on unnecessary iterations.
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Export to GitHub -->
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Export to GitHub</h3>
+                                <p>Sync your project to GitHub for code handoff and version control:</p>
+                                <ul class="step-list">
+                                    <li>In your Lovable project, click the "Export" or "GitHub" button</li>
+                                    <li>Connect your GitHub account (or create one if needed)</li>
+                                    <li>Choose a repository name (e.g., "checkatrade-plumber-landing")</li>
+                                    <li>Click "Export to GitHub" to create your repository</li>
+                                    <li>Share the GitHub repo link with your development team</li>
+                                </ul>
+                                <div class="example">
+                                    <strong>Why GitHub?</strong> This gives your technical team access to the complete codebase for customization, hosting, or integration with existing systems.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Deploy to Vercel -->
+                        <div class="step-card">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h3>Deploy Your App</h3>
+                                <p>Make your marketing tool live and accessible to customers:</p>
+                                <ul class="step-list">
+                                    <li>Lovable offers one-click deployment to Vercel</li>
+                                    <li>Click "Deploy" in your project dashboard</li>
+                                    <li>Choose your domain settings and configuration</li>
+                                    <li>Your app will be live within minutes</li>
+                                </ul>
+                                <div class="resource-link">
+                                    <strong>📚 Need Help?</strong> Check the <a href="https://docs.lovable.dev" target="_blank">Lovable documentation</a> for detailed deployment guides and troubleshooting.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 6: Get Support -->
+                        <div class="step-card">
+                            <div class="step-number">6</div>
+                            <div class="step-content">
+                                <h3>Get Support When You Need It</h3>
+                                <p>Know where to turn for help with technical challenges:</p>
+                                <ul class="step-list">
+                                    <li><strong>For Engineering Support:</strong> Contact the MarTech team for technical assistance, custom integrations, or advanced modifications</li>
+                                    <li><strong>For Lovable Issues:</strong> Check the <a href="https://docs.lovable.dev" target="_blank">official documentation</a> or Lovable's support channels</li>
+                                    <li><strong>For Marketing Strategy:</strong> Use this guide and prompt generator to optimize your campaigns</li>
+                                </ul>
+                                <div class="contact-info">
+                                    <strong>🛠️ Need Technical Help?</strong> Reach out to the MarTech team for engineering support, API integrations, or complex customizations.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Success Tips -->
+                    <div class="success-tips">
+                        <h3>Success Tips for Checkatrade Marketers</h3>
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <div class="tip-icon">⚡</div>
+                                <h4>Start Small</h4>
+                                <p>Begin with simple landing pages before building complex calculators or multi-step funnels.</p>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon">🎯</div>
+                                <h4>Plan Prompts</h4>
+                                <p>Use our prompt generator to create detailed, specific prompts that get great results on the first try.</p>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon">📱</div>
+                                <h4>Test Mobile</h4>
+                                <p>Always preview your apps on mobile devices - most Checkatrade customers browse on smartphones.</p>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon">🔗</div>
+                                <h4>Think Integration</h4>
+                                <p>Plan how your Lovable apps will connect with existing Checkatrade systems and workflows.</p>
                             </div>
                         </div>
                     </div>
@@ -232,24 +383,168 @@
                 <div class="container">
                     <h2>Practical Tools</h2>
                     <div class="tools-grid">
-                        <div class="tool-card card">
+                        <!-- Checkatrade Prompt Generator -->
+                        <div class="checkatrade-prompt-generator card">
                             <div class="card__body">
-                                <h3>🎯 Prompt Template Builder</h3>
-                                <p>Create perfect prompts for your marketing apps:</p>
-                                <div class="prompt-builder">
-                                    <div class="form-group">
-                                        <label class="form-label">Template Category:</label>
-                                        <select id="template-category" class="form-control">
-                                            <option value="Landing Page">Landing Page</option>
-                                            <option value="Dashboard">Dashboard</option>
-                                            <option value="Lead Tool">Lead Tool</option>
-                                            <option value="Event Page">Event Page</option>
-                                        </select>
+                                <div class="generator-header">
+                                    <h3>🏗️ Checkatrade AI Prompt Generator</h3>
+                                    <p class="generator-subtitle">Create professional, branded prompts for Lovable AI that convert visitors into quality trade leads</p>
+                                </div>
+                                
+                                <!-- Instructions -->
+                                <div class="instructions-panel">
+                                    <h4>How to Use This Generator</h4>
+                                    <div class="instruction-steps">
+                                        <div class="step">
+                                            <span class="step-number">1</span>
+                                            <span>Describe your campaign goals and target audience</span>
+                                        </div>
+                                        <div class="step">
+                                            <span class="step-number">2</span>
+                                            <span>Select your page type and fill in the key details</span>
+                                        </div>
+                                        <div class="step">
+                                            <span class="step-number">3</span>
+                                            <span>Copy your ready-to-use prompt and paste it into Lovable</span>
+                                        </div>
                                     </div>
-                                    <div class="generated-prompt">
-                                        <label class="form-label">Generated Prompt:</label>
-                                        <textarea id="prompt-output" class="form-control" rows="4" readonly></textarea>
-                                        <button class="btn btn--secondary mt-8" onclick="copyPrompt()">Copy Prompt</button>
+                                </div>
+
+                                <!-- Campaign Type Selection -->
+                                <div class="campaign-type-section">
+                                    <h4>Campaign Type</h4>
+                                    <div class="campaign-type-buttons">
+                                        <button class="campaign-btn active" data-type="trade-category" onclick="selectCampaignType('trade-category')">
+                                            <span class="campaign-icon">🔧</span>
+                                            <span class="campaign-text">Trade Category Page</span>
+                                        </button>
+                                        <button class="campaign-btn" data-type="local-seo" onclick="selectCampaignType('local-seo')">
+                                            <span class="campaign-icon">📍</span>
+                                            <span class="campaign-text">Local SEO Microsite</span>
+                                        </button>
+                                        <button class="campaign-btn" data-type="quote-calculator" onclick="selectCampaignType('quote-calculator')">
+                                            <span class="campaign-icon">💰</span>
+                                            <span class="campaign-text">Quote Calculator</span>
+                                        </button>
+                                        <button class="campaign-btn" data-type="signup-funnel" onclick="selectCampaignType('signup-funnel')">
+                                            <span class="campaign-icon">📝</span>
+                                            <span class="campaign-text">Trade Sign-up Funnel</span>
+                                        </button>
+                                        <button class="campaign-btn" data-type="seasonal" onclick="selectCampaignType('seasonal')">
+                                            <span class="campaign-icon">🌟</span>
+                                            <span class="campaign-text">Seasonal Campaign</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Input Fields -->
+                                <div class="prompt-inputs">
+                                    <div class="input-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Campaign Name *</label>
+                                            <input type="text" id="campaign-name" class="form-control" placeholder="e.g., Summer Plumbing Services" oninput="generatePrompt()">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Target Location *</label>
+                                            <input type="text" id="target-location" class="form-control" placeholder="e.g., Manchester, London, Birmingham" oninput="generatePrompt()">
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Trade Type *</label>
+                                            <select id="trade-type" class="form-control" onchange="generatePrompt()">
+                                                <option value="">Select trade type...</option>
+                                                <option value="Plumbing">Plumbing</option>
+                                                <option value="Electrical">Electrical</option>
+                                                <option value="Gas Engineer">Gas Engineer</option>
+                                                <option value="Builder">Builder</option>
+                                                <option value="Roofer">Roofer</option>
+                                                <option value="Painter & Decorator">Painter & Decorator</option>
+                                                <option value="Carpenter">Carpenter</option>
+                                                <option value="Landscaper">Landscaper</option>
+                                                <option value="Kitchen Fitter">Kitchen Fitter</option>
+                                                <option value="Bathroom Fitter">Bathroom Fitter</option>
+                                                <option value="Handyman">Handyman</option>
+                                                <option value="Locksmith">Locksmith</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Call-to-Action</label>
+                                            <select id="cta-type" class="form-control" onchange="generatePrompt()">
+                                                <option value="Get Quote">Get Quote</option>
+                                                <option value="Find Tradesperson">Find Tradesperson</option>
+                                                <option value="Join Checkatrade">Join Checkatrade</option>
+                                                <option value="Book Service">Book Service</option>
+                                                <option value="Get Estimate">Get Estimate</option>
+                                                <option value="Contact Local Trades">Contact Local Trades</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Special Features (Optional)</label>
+                                        <div class="feature-checkboxes">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" id="feature-reviews" onchange="generatePrompt()">
+                                                <span class="checkmark"></span>
+                                                Customer Reviews & Ratings
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" id="feature-guarantees" onchange="generatePrompt()">
+                                                <span class="checkmark"></span>
+                                                Work Guarantees
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" id="feature-insurance" onchange="generatePrompt()">
+                                                <span class="checkmark"></span>
+                                                Insurance & Vetting Info
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" id="feature-emergency" onchange="generatePrompt()">
+                                                <span class="checkmark"></span>
+                                                Emergency Services
+                                            </label>
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" id="feature-mobile" onchange="generatePrompt()">
+                                                <span class="checkmark"></span>
+                                                Mobile-First Design
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Generated Prompt -->
+                                <div class="generated-prompt-section">
+                                    <div class="prompt-header">
+                                        <h4>Your Lovable AI Prompt</h4>
+                                        <button class="btn copy-btn" id="copy-prompt-btn" onclick="copyGeneratedPrompt()">
+                                            <span class="copy-icon">📋</span>
+                                            Copy Prompt
+                                        </button>
+                                    </div>
+                                    <div class="prompt-preview">
+                                        <textarea id="generated-prompt" class="form-control prompt-textarea" rows="8" readonly placeholder="Fill in the required fields above to generate your custom Checkatrade prompt..."></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Example Prompts -->
+                                <div class="example-prompts">
+                                    <h4>Example Prompts for Inspiration</h4>
+                                    <div class="example-grid">
+                                        <div class="example-card">
+                                            <h5>Local Plumber Landing Page</h5>
+                                            <p class="example-text">"Create a professional landing page for emergency plumbing services in Manchester. Include Checkatrade branding with blue (#0058a2) and red (#eb1f40) colors..."</p>
+                                            <button class="btn btn--sm example-copy-btn" onclick="copyExamplePrompt(0)">Use This Example</button>
+                                        </div>
+                                        <div class="example-card">
+                                            <h5>Trade Sign-up Funnel</h5>
+                                            <p class="example-text">"Build a multi-step registration funnel for electricians to join Checkatrade. Include benefits showcase, pricing tiers, and verification process..."</p>
+                                            <button class="btn btn--sm example-copy-btn" onclick="copyExamplePrompt(1)">Use This Example</button>
+                                        </div>
+                                        <div class="example-card">
+                                            <h5>Quote Calculator Tool</h5>
+                                            <p class="example-text">"Design an interactive bathroom renovation cost calculator. Capture lead details, show price ranges, and connect with local verified fitters..."</p>
+                                            <button class="btn btn--sm example-copy-btn" onclick="copyExamplePrompt(2)">Use This Example</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
