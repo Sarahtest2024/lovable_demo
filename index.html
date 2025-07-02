@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovable AI for Marketers - Interactive Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content flex items-center justify-between">
+                    <div class="logo">
+                        <h1>Lovable for Marketers</h1>
+                        <span class="tagline">Build Apps in Minutes, Not Months</span>
+                    </div>
+                    <div class="credits-display">
+                        <span class="credits-label">Daily Credits:</span>
+                        <span class="credits-count">5</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Transform Your Marketing with AI-Powered Apps</h2>
+                    <p>Learn how to maximize your 5 free daily Lovable credits and create powerful marketing tools that save time and drive results.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">99.8%</span>
+                            <span class="stat-label">Time Savings</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">47x</span>
+                            <span class="stat-label">Faster Development</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">$11,300</span>
+                            <span class="stat-label">Average Cost Savings</span>
+                        </div>
+                    </div>
+                    <button class="btn btn--primary btn--lg" onclick="showSection('tutorial')">Start Tutorial</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <div class="container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="showSection('tutorial')">What is Lovable?</button>
+                    <button class="tab-btn" onclick="showSection('use-cases')">Marketing Use Cases</button>
+                    <button class="tab-btn" onclick="showSection('credit-manager')">Credit Management</button>
+                    <button class="tab-btn" onclick="showSection('quick-start')">Quick Start Guide</button>
+                    <button class="tab-btn" onclick="showSection('tools')">Practical Tools</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Tutorial Section -->
+            <section class="content-section active" id="tutorial">
+                <div class="container">
+                    <h2>What is Lovable AI?</h2>
+                    <div class="tutorial-grid">
+                        <div class="tutorial-card">
+                            <h3>Traditional Development</h3>
+                            <ul>
+                                <li>120+ hours for a landing page</li>
+                                <li>Requires developers, designers</li>
+                                <li>Expensive ongoing maintenance</li>
+                                <li>Long development cycles</li>
+                                <li>Technical expertise needed</li>
+                            </ul>
+                        </div>
+                        <div class="tutorial-card lovable-card">
+                            <h3>Lovable Development</h3>
+                            <ul>
+                                <li>15 minutes for a landing page</li>
+                                <li>Just describe what you need</li>
+                                <li>Built-in hosting & maintenance</li>
+                                <li>Instant iterations</li>
+                                <li>No coding required</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="comparison-image">
+                        <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/dded4f1d59bfb9225c5c1c19d4257238/0b032ca6-ca5d-45bc-97c0-046d5534251e/622f3d22.png" alt="Lovable vs Traditional Development Comparison" />
+                    </div>
+                    <div class="key-benefits">
+                        <h3>Key Benefits for Marketers</h3>
+                        <div class="benefits-grid">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">⚡</div>
+                                <div class="benefit-text">
+                                    <h4>Speed</h4>
+                                    <p>Build marketing tools in minutes, not months</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">💰</div>
+                                <div class="benefit-text">
+                                    <h4>Cost Savings</h4>
+                                    <p>Save thousands on development costs</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">🎯</div>
+                                <div class="benefit-text">
+                                    <h4>Marketing Focus</h4>
+                                    <p>Spend time on strategy, not technical details</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon">🔄</div>
+                                <div class="benefit-text">
+                                    <h4>Quick Iterations</h4>
+                                    <p>Test and refine ideas instantly</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Use Cases Section -->
+            <section class="content-section" id="use-cases">
+                <div class="container">
+                    <h2>Marketing Use Cases</h2>
+                    <p>See what you can build with Lovable and how it transforms your workflow:</p>
+                    <div class="use-cases-grid" id="use-cases-grid">
+                        <!-- Generated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Credit Management Section -->
+            <section class="content-section" id="credit-manager">
+                <div class="container">
+                    <h2>Maximize Your 5 Daily Credits</h2>
+                    <div class="credit-section">
+                        <div class="credit-calculator card">
+                            <div class="card__body">
+                                <h3>Credit Usage Calculator</h3>
+                                <p>Plan your projects and see how your credits are used:</p>
+                                <div class="calculator-inputs">
+                                    <div class="input-group">
+                                        <label>Project Type:</label>
+                                        <select id="project-type" class="form-control">
+                                            <option value="1">Landing Page (1 credit)</option>
+                                            <option value="2">Lead Generation Tool (2 credits)</option>
+                                            <option value="2">Campaign Dashboard (2 credits)</option>
+                                            <option value="1">Event Registration (1 credit)</option>
+                                            <option value="1">A/B Testing Tool (1 credit)</option>
+                                            <option value="2">ROI Calculator (2 credits)</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label>Number of Projects:</label>
+                                        <input type="number" id="project-count" class="form-control" value="1" min="1" max="10">
+                                    </div>
+                                    <div class="calculator-result">
+                                        <div class="result-display">
+                                            <span class="result-label">Credits Needed:</span>
+                                            <span class="result-value" id="credits-needed">1</span>
+                                        </div>
+                                        <div class="result-display">
+                                            <span class="result-label">Days Required:</span>
+                                            <span class="result-value" id="days-needed">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="credit-tips card">
+                            <div class="card__body">
+                                <h3>Credit Optimization Tips</h3>
+                                <ul id="credit-tips-list">
+                                    <!-- Generated by JavaScript -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Start Guide -->
+            <section class="content-section" id="quick-start">
+                <div class="container">
+                    <h2>Quick Start Guide</h2>
+                    <div class="quick-start-steps">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Define Your Goal</h3>
+                                <p>What marketing problem are you solving? Be specific about your objective.</p>
+                                <div class="example">
+                                    <strong>Example:</strong> "I need a landing page for our Q3 product launch that captures leads"
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Choose Your Template</h3>
+                                <p>Select from our proven prompt templates or create your own.</p>
+                                <button class="btn btn--secondary" onclick="showSection('tools')">View Prompt Builder</button>
+                            </div>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Customize & Deploy</h3>
+                                <p>Refine your app with specific details and launch in minutes.</p>
+                                <div class="example">
+                                    <strong>Tip:</strong> Start simple, then iterate with additional features
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Practical Tools -->
+            <section class="content-section" id="tools">
+                <div class="container">
+                    <h2>Practical Tools</h2>
+                    <div class="tools-grid">
+                        <div class="tool-card card">
+                            <div class="card__body">
+                                <h3>🎯 Prompt Template Builder</h3>
+                                <p>Create perfect prompts for your marketing apps:</p>
+                                <div class="prompt-builder">
+                                    <div class="form-group">
+                                        <label class="form-label">Template Category:</label>
+                                        <select id="template-category" class="form-control">
+                                            <option value="Landing Page">Landing Page</option>
+                                            <option value="Dashboard">Dashboard</option>
+                                            <option value="Lead Tool">Lead Tool</option>
+                                            <option value="Event Page">Event Page</option>
+                                        </select>
+                                    </div>
+                                    <div class="generated-prompt">
+                                        <label class="form-label">Generated Prompt:</label>
+                                        <textarea id="prompt-output" class="form-control" rows="4" readonly></textarea>
+                                        <button class="btn btn--secondary mt-8" onclick="copyPrompt()">Copy Prompt</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tool-card card">
+                            <div class="card__body">
+                                <h3>💰 ROI Calculator</h3>
+                                <p>Calculate your potential savings with Lovable:</p>
+                                <div class="roi-calculator">
+                                    <div class="form-group">
+                                        <label class="form-label">Projects per Month:</label>
+                                        <input type="number" id="projects-per-month" class="form-control" value="2" min="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Developer Hourly Rate ($):</label>
+                                        <input type="number" id="hourly-rate" class="form-control" value="100" min="50">
+                                    </div>
+                                    <div class="roi-results">
+                                        <div class="roi-item">
+                                            <span class="roi-label">Monthly Savings:</span>
+                                            <span class="roi-value" id="monthly-savings">$24,000</span>
+                                        </div>
+                                        <div class="roi-item">
+                                            <span class="roi-label">Annual Savings:</span>
+                                            <span class="roi-value" id="annual-savings">$288,000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sample Projects Showcase -->
+                    <div style="margin-top: 32px;">
+                        <h3>Sample Projects You Can Build</h3>
+                        <div class="sample-projects-grid">
+                            <div class="sample-project card">
+                                <div class="card__body">
+                                    <h4>🚀 Landing Page Preview</h4>
+                                    <p>High-converting campaign pages with lead capture, social proof, and mobile optimization.</p>
+                                    <div class="project-features">
+                                        <span class="feature-tag">Hero Section</span>
+                                        <span class="feature-tag">Lead Forms</span>
+                                        <span class="feature-tag">Mobile Ready</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="sample-project card">
+                                <div class="card__body">
+                                    <h4>📊 Dashboard Mockup</h4>
+                                    <p>Real-time marketing analytics with interactive charts and KPI tracking.</p>
+                                    <div class="project-features">
+                                        <span class="feature-tag">Live Data</span>
+                                        <span class="feature-tag">Charts</span>
+                                        <span class="feature-tag">Exports</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="sample-project card">
+                                <div class="card__body">
+                                    <h4>🧮 Lead Generation Tool</h4>
+                                    <p>Interactive calculators and assessments that capture qualified leads.</p>
+                                    <div class="project-features">
+                                        <span class="feature-tag">Calculators</span>
+                                        <span class="feature-tag">Lead Capture</span>
+                                        <span class="feature-tag">Integrations</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="sample-project card">
+                                <div class="card__body">
+                                    <h4>🎟️ Campaign Tracker</h4>
+                                    <p>Track campaign performance across channels with automated reporting.</p>
+                                    <div class="project-features">
+                                        <span class="feature-tag">Multi-Channel</span>
+                                        <span class="feature-tag">Automation</span>
+                                        <span class="feature-tag">Reports</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Quiz Modal -->
+        <div class="modal" id="quiz-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Test Your Knowledge</h3>
+                    <button class="close-btn" onclick="closeQuiz()">&times;</button>
+                </div>
+                <div class="modal-body" id="quiz-content">
+                    <!-- Quiz content generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>Ready to transform your marketing workflow?</p>
+                    <button class="btn btn--primary" onclick="startQuiz()">Take the Quiz</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
